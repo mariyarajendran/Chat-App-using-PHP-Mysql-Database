@@ -1,0 +1,134 @@
+-- phpMyAdmin SQL Dump
+-- version 3.1.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Feb 19, 2017 at 06:14 AM
+-- Server version: 5.1.30
+-- PHP Version: 5.2.8
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Database: `chatapp`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `account`
+--
+
+CREATE TABLE IF NOT EXISTS `account` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` text NOT NULL,
+  `phoneno` text NOT NULL,
+  `username` text NOT NULL,
+  `password` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `account`
+--
+
+INSERT INTO `account` (`id`, `name`, `phoneno`, `username`, `password`) VALUES
+(6, 'Kumar', '9659123419', 'Kumar', '1234'),
+(3, 'Raj', '7358853139', 'Rajen', '1234'),
+(4, 'Ram', '9585205043', 'Ram', '1234'),
+(7, 'john', '1234567890', 'john', '1234');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `addcontact`
+--
+
+CREATE TABLE IF NOT EXISTS `addcontact` (
+  `addcontact_id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL,
+  `phoneno` text NOT NULL,
+  `contactid` int(11) NOT NULL,
+  `contactname` text NOT NULL,
+  PRIMARY KEY (`addcontact_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `addcontact`
+--
+
+INSERT INTO `addcontact` (`addcontact_id`, `userid`, `phoneno`, `contactid`, `contactname`) VALUES
+(6, 6, '7358853139', 3, 'Raj'),
+(5, 4, '7358853139', 3, 'Raj'),
+(4, 3, '9659123419', 6, 'Kumar'),
+(7, 6, '9585205043', 4, 'Ram'),
+(8, 6, '1234567890', 7, 'john');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `message`
+--
+
+CREATE TABLE IF NOT EXISTS `message` (
+  `message_id` bigint(11) NOT NULL AUTO_INCREMENT,
+  `message_fromto` text NOT NULL,
+  `message_text` text NOT NULL,
+  `totalidunique` text NOT NULL,
+  `status` text NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`message_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=133 ;
+
+--
+-- Dumping data for table `message`
+--
+
+INSERT INTO `message` (`message_id`, `message_fromto`, `message_text`, `totalidunique`, `status`, `time`) VALUES
+(115, '6.4', 'bandwith problem oi', '10', 'read', '2017-01-15 03:48:14'),
+(114, '6.4', 'hello', '10', 'read', '2017-01-15 03:48:05'),
+(113, '6.4', 'hi', '10', 'read', '2017-01-15 03:48:00'),
+(112, '6.4', 'ha ha ha', '10', 'read', '2017-01-15 03:36:59'),
+(111, '6.4', 'madam hi', '10', 'read', '2017-01-15 03:36:42'),
+(110, '6.4', 'hi da', '10', 'read', '2017-01-15 03:35:37'),
+(109, '6.3', 'ha ha ha ha', '9', 'read', '2017-01-14 20:29:59'),
+(108, '6.4', 'ha ha ha', '10', 'read', '2017-01-14 20:29:20'),
+(107, '6.4', 'super da ha ha ha', '10', 'read', '2017-01-14 08:03:46'),
+(106, '4.6', 'ammanda machi crt ta', '10', 'read', '2017-01-14 08:03:25'),
+(105, '4.6', 'crt than da machi', '10', 'read', '2017-01-14 08:03:25'),
+(103, '4.6 ', 'eeeee', '10', 'read', '2017-01-14 08:00:18'),
+(104, '6.4', 'ha ha ha', '10', 'read', '2017-01-14 08:01:04'),
+(102, '4.6', 'ha ha ha ha', '10', 'read', '2017-01-14 08:00:18'),
+(101, '6.3', 'pakalam da', '9', 'read', '2017-01-14 07:56:58'),
+(100, '6.3', 'bye da machi', '9', 'read', '2017-01-14 07:56:52'),
+(99, '6.3', 'gud da', '9', 'read', '2017-01-14 07:56:20'),
+(98, '6.3', 'dai enna DA ', '9', 'read', '2017-01-14 07:56:14'),
+(97, '6.3', 'welcome bass', '9', 'read', '2017-01-14 07:56:02'),
+(96, '6.3', 'sollu da', '9', 'read', '2017-01-14 07:55:50'),
+(95, '6.3', 'hai', '9', 'read', '2017-01-14 07:37:50'),
+(94, '6.7', 'nee enna da pannura solluda', '13', 'read', '2017-01-14 07:35:48'),
+(92, '6.7', 'ippo overra', '13', 'read', '2017-01-14 07:35:08'),
+(93, '6.7', 'illa da', '13', 'read', '2017-01-14 07:35:28'),
+(90, '6.4', 'solluda', '10', 'read', '2017-01-14 07:32:04'),
+(91, '6.7', 'confusion da', '13', 'read', '2017-01-14 07:32:16'),
+(88, '6.7', 'SS da ', '13', 'read', '2017-01-14 07:31:14'),
+(89, '6.4', 'dai ram', '10', 'read', '2017-01-14 07:31:34'),
+(87, '6.7', 'nalla irukia', '13', 'read', '2017-01-14 07:30:34'),
+(86, '6.7', 'dai john', '13', 'read', '2017-01-14 07:30:04'),
+(116, '6.4', 'so it receive late', '10', 'read', '2017-01-15 03:48:25'),
+(117, '6.4', 'ha ha', '10', 'read', '2017-01-15 04:29:16'),
+(118, '6.4', 'eeee', '10', 'read', '2017-01-15 04:29:23'),
+(119, '6.4', 'ha ha', '10', 'read', '2017-01-15 04:39:16'),
+(120, '6.4', 'welcome bro', '10', 'read', '2017-01-15 04:39:40'),
+(121, '6.4', 'ha ha', '10', 'read', '2017-01-15 04:44:52'),
+(122, '6.4', 'ha', '10', 'read', '2017-01-15 04:45:47'),
+(123, '4.6', 'wrk aguma da machi', '10', 'read', '2017-01-15 04:47:26'),
+(124, '6.4', 'aguthu da', '10', 'read', '2017-01-15 04:47:42'),
+(125, '6.4', 'sema da machi', '10', 'read', '2017-01-15 04:47:52'),
+(126, '6.7', 'ha ha ha', '13', 'read', '2017-01-15 04:52:20'),
+(127, '6.4', 'illa da', '10', 'read', '2017-01-15 04:58:02'),
+(128, '6.4', 'ha ha ha', '10', 'read', '2017-01-15 05:07:29'),
+(129, '4.6', 'msg found da illa ya', '10', 'read', '2017-01-15 19:04:33'),
+(130, '6.4', 'hai', '10', 'read', '2017-01-15 19:12:57'),
+(131, '6.4', 'hello guys', '10', 'read', '2017-01-15 19:13:04'),
+(132, '6.4', 'hai machi', '10', 'read', '2017-01-15 19:17:18');
